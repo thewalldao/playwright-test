@@ -32,16 +32,16 @@ export default defineConfig({
     },
 
 
-    {
-      name: 'Chrome',
-      use: { browserName: 'chromium', channel: 'chrome' },
-      dependencies: ['setup'],
-    },
-    {
-      name: 'Edge',
-      use: { browserName: 'chromium', channel: 'msedge' },
-      dependencies: ['setup'],
-    },
+    // {
+    //   name: 'Chrome',
+    //   use: { browserName: 'chromium', channel: 'chrome' },
+    //   dependencies: ['setup'],
+    // },
+    // {
+    //   name: 'Edge',
+    //   use: { browserName: 'chromium', channel: 'msedge' },
+    //   dependencies: ['setup'],
+    // },
 
     // E2E Galaxy S9 - with TRACE
     {

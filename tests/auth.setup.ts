@@ -45,8 +45,6 @@ test.describe('Setup: LinkedIn Authentication', () => {
                 await page.locator("#password").evaluate((input: HTMLInputElement, password) => {
                     input.value = password;
                 }, cred.password!);
-                // await page.fill('#username', cred.username);
-                // await page.fill('#password', cred.password);
                 await page.click('button[type="submit"]');
 
                 await page.waitForURL('https://www.linkedin.com/feed/', { timeout: 20000 });

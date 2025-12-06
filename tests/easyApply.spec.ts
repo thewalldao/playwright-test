@@ -33,8 +33,6 @@ async function findEasyApplyJob(page: any): Promise<boolean> {
     await page.locator("//span[text()='Show all']").first().click({ timeout: mediumWaitTime });
     await page.locator("//li[normalize-space(@class) = 'jobs-search-discovery-tabs__listitem']//*[text()='Easy Apply']").click({ timeout: mediumWaitTime });
 
-    await page.waitForTimeout(2000);
-
     const jobs: Locator = page.locator("//div[@data-results-list-top-scroll-sentinel]/following-sibling::ul//li[contains(@class, 'ember-view')]");
     await jobs.first().waitFor({ state: 'visible', timeout: mediumWaitTime });
 
@@ -66,17 +64,20 @@ async function validateEasyApplyModal(page: any): Promise<void> {
   log('Checking job has been already summited')
   const alreadySubmitedJob: Locator = page.locator("//div[@data-results-list-top-scroll-sentinel]/following-sibling::ul//li[contains(@class, 'ember-view')]//*[@aria-label='Software Testing Engineer']/ancestor::div[1]/following-sibling::div//*[text()='HCLTech Vietnam']")
   const easySubmitBtn: Locator = page.locator("//div[@class='job-details-fit-level-preferences']/following-sibling::div//button[@id='jobs-apply-button-id']")
+  const descriptionJobContainer: Locator = page.locator(".job-details-jobs-unified-top-card__primary-description-container")
+  await alreadySubmitedJob.scrollIntoViewIfNeeded({ timeout: longWaitTime })
   await alreadySubmitedJob.waitFor({ state: 'visible', timeout: longWaitTime });
   await alreadySubmitedJob.click({ timeout: 0 })
-  await
-    await easySubmitBtn.waitFor({ state: 'detached', timeout: shortWaitTime });
+  await descriptionJobContainer.waitFor({ state: 'visible', timeout: superWaitTime })
+  await easySubmitBtn.waitFor({ state: 'detached', timeout: shortWaitTime });
   await expect(easySubmitBtn).not.toBeAttached({ timeout: 0 });
 
   log('Checking job has not been summited')
   const jobs: Locator = page.locator("//div[@data-results-list-top-scroll-sentinel]/following-sibling::ul//li[contains(@class, 'ember-view')]");
   jobs.first().click({ timeout: longWaitTime })
 
-  await easySubmitBtn.click({ timeout: superWaitTime })
+  await descriptionJobContainer.waitFor({ state: 'visible', timeout: superWaitTime })
+  await easySubmitBtn.click({ timeout: longWaitTime })
   const modal = page.locator('#artdeco-modal-outlet [role=dialog]');
   await expect(modal).toBeVisible({ timeout: shortWaitTime });
 
@@ -112,38 +113,6 @@ test.describe('LinkedIn Easy Apply - E2E', () => {
       test.beforeEach(async ({ browser }) => {
         log(`\n${'='.repeat(60)}\n🧪 ${cred.username}\n${'='.repeat(60)}`);
       });
-
-      // test('Navigate to Jobs page', async ({ browser }) => {
-      //   const context = await browser.newContext();
-      //   const page = await context.newPage();
-
-      //   const cookies = JSON.parse(fs.readFileSync(cred.storage, 'utf8'));
-      //   await context.addCookies(cookies);
-
-      //   log('🔗 Navigating to LinkedIn Jobs...');
-      //   await page.goto('https://www.linkedin.com/jobs', { timeout: 30000 });
-
-      //   await expect(page).toHaveTitle(/Jobs/i);
-      //   log('✅ Jobs page loaded');
-
-      //   await context.close();
-      // });
-
-      // test('Find Easy Apply job', async ({ browser }) => {
-      //   const context = await browser.newContext();
-      //   const page = await context.newPage();
-
-      //   const cookies = JSON.parse(fs.readFileSync(cred.storage, 'utf8'));
-      //   await context.addCookies(cookies);
-
-      //   log('🔗 Navigating to LinkedIn Jobs...');
-      //   await page.goto('https://www.linkedin.com/jobs', { timeout: 30000 });
-
-      //   const found = await findEasyApplyJob(page);
-      //   expect(found).toBe(true);
-
-      //   await context.close();
-      // });
 
       test('Validate Easy Apply modal', async ({ browser }) => {
         const context = await browser.newContext();
