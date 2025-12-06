@@ -1,0 +1,43 @@
+[2025-12-06T14:47:05.689Z] 🔐 Logging in thewalldao@gmail.com...
+[2025-12-06T14:47:13.794Z] ✅ thewalldao@gmail.com logged in successfully
+[2025-12-06T14:47:13.800Z] 💾 Session saved: state_u1.json
+[2025-12-06T14:47:15.356Z] 
+============================================================
+🧪 thewalldao@gmail.com
+============================================================
+[2025-12-06T14:47:15.963Z] 🔗 Navigating to LinkedIn Jobs...
+[2025-12-06T14:47:15.972Z] 
+============================================================
+🧪 thewalldao@gmail.com
+============================================================
+[2025-12-06T14:47:16.245Z] 
+============================================================
+🧪 thewalldao@gmail.com
+============================================================
+[2025-12-06T14:47:17.342Z] 🔗 Navigating to LinkedIn Jobs...
+[2025-12-06T14:47:17.544Z] 🔗 Navigating to LinkedIn Jobs...
+[2025-12-06T14:47:21.046Z] 🔍 Scanning for Easy Apply jobs...
+[2025-12-06T14:47:22.941Z] 🔍 Scanning for Easy Apply jobs...
+[2025-12-06T14:47:27.333Z] 📊 Found 25 job listings
+[2025-12-06T14:47:27.721Z] 🔍 Scanning for Easy Apply jobs...
+[2025-12-06T14:47:27.768Z] ✨ Easy Apply job found at index 0
+[2025-12-06T14:47:29.505Z] 📋 Validating Easy Apply modal...
+[2025-12-06T14:47:29.506Z] Checking job has been already summited
+[2025-12-06T14:47:29.789Z] Checking job has not been summited
+[2025-12-06T14:47:34.010Z] ⚠️  Error: TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for locator('//li[normalize-space(@class) = \'jobs-search-discovery-tabs__listitem\']//*[text()=\'Easy Apply\']')[22m
+
+[2025-12-06T14:47:37.806Z] ⚠️  Error: TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+[2m  - waiting for locator('//span[text()=\'Show all\']').first()[22m
+[2m    - locator resolved to <span class="_3cd47253 c22ebfc2 _4a16c116 _100cf6f3 db585fe4 dfd2342d _1eb4af80 c9a4738b _53f3e5f7 c69abea5 dda8046a _89bf2af1 _1b8bd78d _0c747956 _28465eb4">Show all</span>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing click action[22m
+[2m    - click action done[22m
+[2m    - waiting for scheduled navigations to finish[22m
+
