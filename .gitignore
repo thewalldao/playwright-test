@@ -4,3 +4,4 @@ test-results
 state_u1*
 creds.json
 package-lock.json
+*.log
